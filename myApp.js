@@ -7,6 +7,7 @@ app.get('/',(req, res)=>{
     res.send("Hello Express")
 })
 */
+app.use(express.static(path.join(__dirname,'/public/style.css')))
 app.get('/',(req, res)=>{
     res.sendFile(path.join(__dirname,'views', 'index.html'))
 })
