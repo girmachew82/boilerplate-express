@@ -26,6 +26,18 @@ app.get('/:word/echo', (req, res)=>{
         echo: req.params.word
     })
 })
+app.route('/name')
+    .get((req, res)=>{
+        res.json({
+            name:req.query.first+ " "+req.query.last
+        })
+    })
+    .post((req, res)=>{
+        res.json({
+            name:req.query.first+ " "+req.query.last
+
+        })
+    })
 app.use("/public", express.static(__dirname + "/public"));
 app.get('/',(req, res)=>{
     res.sendFile(path.join(__dirname,'views', 'index.html'))
