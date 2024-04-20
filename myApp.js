@@ -2,6 +2,8 @@ require('dotenv').config()
 let express = require('express');
 let app = express();
 let path = require('path')
+let bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({extended:false}))
 /*
 console.log("Hello World")
 app.get('/',(req, res)=>{
