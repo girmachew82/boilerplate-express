@@ -30,13 +30,15 @@ app.get('/:word/echo', (req, res)=>{
 })
 app.route('/name')
     .get((req, res)=>{
-        res.json({
+       res.json({
             name:req.query.first+ " "+req.query.last
         })
     })
     .post((req, res)=>{
+        first = req.body.first
+        last = req.body.last
         res.json({
-            name:req.query.first+ " "+req.query.last
+            name: first+ " "+last
 
         })
     })
