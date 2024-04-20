@@ -8,7 +8,10 @@ app.get('/',(req, res)=>{
     res.send("Hello Express")
 })
 */
-
+app.use(function middleware(req, res, next){
+    console.log(req.method+" "+req.path+ " -"+req.ip)
+    next()
+})
 app.use("/public", express.static(__dirname + "/public"));
 app.get('/',(req, res)=>{
     res.sendFile(path.join(__dirname,'views', 'index.html'))
@@ -16,9 +19,9 @@ app.get('/',(req, res)=>{
 app.get('/json',(req, res)=>{
     const cs = process.env.MESSAGE_STYLE
     if(cs =="uppercase")
-    response = "Hello josn".toUpperCase()
+    response = "Hello json".toUpperCase()
     else
-    response  = "Hello josn"
+    response  = "Hello json"
     res.status(200).json({
         message : response
     })
